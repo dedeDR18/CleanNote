@@ -7,6 +7,7 @@ import com.example.cleannote.feature_note.data.data_source.NoteDao
 import com.example.cleannote.feature_note.data.data_source.NoteDatabase
 import com.example.cleannote.feature_note.data.repository.NoteRepositoryImpl
 import com.example.cleannote.feature_note.domain.repository.NoteRepository
+import com.example.cleannote.feature_note.domain.usecase.AddNote
 import com.example.cleannote.feature_note.domain.usecase.DeleteNote
 import com.example.cleannote.feature_note.domain.usecase.GetNotes
 import com.example.cleannote.feature_note.domain.usecase.NoteUseCases
@@ -41,7 +42,8 @@ object AppModule {
     fun provideNoteUseCases(repository: NoteRepository): NoteUseCases {
         return NoteUseCases(
             getNotes = GetNotes(repository),
-            deleteNote = DeleteNote(repository)
+            deleteNote = DeleteNote(repository),
+            addNote = AddNote(repository)
         )
     }
 }
