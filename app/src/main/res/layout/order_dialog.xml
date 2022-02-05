@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order By"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:checkedButton="@id/rb_title"
+            android:id="@+id/rg_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Title" />
+
+            <RadioButton
+                android:id="@+id/rb_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Date" />
+
+            <RadioButton
+                android:id="@+id/rb_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Color" />
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:checkedButton="@id/rb_ascending"
+            android:id="@+id/rg_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <RadioButton
+                android:id="@+id/rb_ascending"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Ascending" />
+
+            <RadioButton
+                android:id="@+id/rb_descending"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Descending" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btn_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:textAllCaps="false"
+            android:text="Simpan" />
+    </LinearLayout>
+</layout>

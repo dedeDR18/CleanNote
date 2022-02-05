@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/note_green"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".feature_note.persentation.add_edit_note.add_edit_note">
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_yellow"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:text=""
+            android:textAllCaps="false"
+            app:backgroundTint="@color/note_yellow"
+            app:cornerRadius="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_green"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:text=""
+            android:textAllCaps="false"
+            app:backgroundTint="@color/note_green"
+            app:cornerRadius="30dp"
+            app:layout_constraintStart_toEndOf="@+id/btn_yellow"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_blue"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:text=""
+            android:textAllCaps="false"
+            app:backgroundTint="@color/note_blue"
+            app:cornerRadius="30dp"
+            app:layout_constraintStart_toEndOf="@+id/btn_green"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_abu"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:text=""
+            android:textAllCaps="false"
+            app:backgroundTint="@color/note_abu"
+            app:cornerRadius="30dp"
+            app:layout_constraintStart_toEndOf="@+id/btn_blue"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_burgandy"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:text=""
+            android:textAllCaps="false"
+            app:backgroundTint="@color/note_burgandy"
+            app:cornerRadius="30dp"
+            app:layout_constraintStart_toEndOf="@+id/btn_abu"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_rose"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:text=""
+            android:textAllCaps="false"
+            app:backgroundTint="@color/note_rose"
+            app:cornerRadius="30dp"
+            app:layout_constraintStart_toEndOf="@+id/btn_burgandy"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="1dp" />
+
+
+        <EditText
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:id="@+id/et_title"
+            android:background="@android:color/transparent"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:inputType="textMultiLine"
+            android:hint="Title"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_yellow" />
+
+        <EditText
+            android:id="@+id/et_description"
+            android:background="@android:color/transparent"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:inputType="textMultiLine"
+            android:hint="Description"
+            android:layout_marginTop="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_title" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
