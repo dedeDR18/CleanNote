@@ -9,6 +9,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_add_edit_note.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_notes.xml" value="0.23437805175781254" />
+        <entry key="app/src/main/res/layout/list_note_item.xml" value="0.27708333333333335" />
         <entry key="app/src/main/res/layout/order_dialog.xml" value="0.1" />
         <entry key="app/src/main/res/menu/menu_order.xml" value="0.2953125" />
       </map>
