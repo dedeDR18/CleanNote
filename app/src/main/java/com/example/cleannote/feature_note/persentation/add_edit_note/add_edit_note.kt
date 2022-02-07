@@ -2,10 +2,8 @@ package com.example.cleannote.feature_note.persentation.add_edit_note
 
 import android.graphics.Color
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import com.example.cleannote.R
 import com.example.cleannote.databinding.FragmentAddEditNoteBinding
@@ -15,8 +13,12 @@ class add_edit_note : Fragment() {
     private var _binding: FragmentAddEditNoteBinding? = null
     private val binding get() = _binding!!
 
+    private var title = ""
+    private var description = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
 //        arguments?.let {
 //            param1 = it.getString(ARG_PARAM1)
 //            param2 = it.getString(ARG_PARAM2)
@@ -59,8 +61,16 @@ class add_edit_note : Fragment() {
         binding.btnRose.setOnClickListener {
             binding.root.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.note_rose))
         }
+
+        title = binding.etTitle.text.toString()
+        description = binding.etDescription.text.toString()
+
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        menu.clear()
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
