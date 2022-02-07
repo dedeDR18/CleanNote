@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.core.content.ContextCompat
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import com.example.cleannote.R
 import com.example.cleannote.databinding.FragmentAddEditNoteBinding
 
@@ -12,6 +14,8 @@ class add_edit_note : Fragment() {
 
     private var _binding: FragmentAddEditNoteBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var navController: NavController
 
     private var title = ""
     private var description = ""
@@ -38,6 +42,8 @@ class add_edit_note : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        navController = Navigation.findNavController(view)
+
         binding.btnYellow.setOnClickListener {
             binding.root.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.note_yellow))
         }
@@ -62,8 +68,17 @@ class add_edit_note : Fragment() {
             binding.root.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.note_rose))
         }
 
+        binding.fabEditnotes.apply {
+            setOnClickListener {
+                navController.popBackStack()
+            }
+        }
+
+
         title = binding.etTitle.text.toString()
         description = binding.etDescription.text.toString()
+
+
 
     }
 

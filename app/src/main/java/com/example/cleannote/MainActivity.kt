@@ -31,9 +31,14 @@ class MainActivity : AppCompatActivity() {
 
         navController = findNavController(R.id.main_fragment)
 
-        binding.fab.setOnClickListener {
-            navController.navigate(R.id.action_notesFragment_to_add_edit_note)
-        }
+
+
+//        binding.fab.apply {
+//            setOnClickListener {
+//                navController.navigate(R.id.action_notesFragment_to_add_edit_note)
+//                setImageDrawable(getDrawable(R.drawable.ic_save))
+//            }
+//        }
 
 
     }
