@@ -6,11 +6,12 @@
         <entry key="../../../../layout/custom_preview.xml" value="0.2638888888888889" />
         <entry key="app/src/main/res/drawable/circle.xml" value="0.1935" />
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_delete.xml" value="0.23" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.24856109619140626" />
         <entry key="app/src/main/res/layout/fragment_add_edit_note.xml" value="0.21750946044921876" />
         <entry key="app/src/main/res/layout/fragment_notes.xml" value="0.23437805175781254" />
         <entry key="app/src/main/res/layout/list_note_item.xml" value="0.27708333333333335" />
-        <entry key="app/src/main/res/layout/note_item.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/layout/note_item.xml" value="0.19022928873697909" />
         <entry key="app/src/main/res/layout/order_dialog.xml" value="0.1" />
         <entry key="app/src/main/res/menu/menu_order.xml" value="0.2953125" />
       </map>
