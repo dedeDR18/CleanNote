@@ -10,6 +10,7 @@ import com.example.cleannote.feature_note.domain.model.Note
 
 class NotesAdapter : RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
     private val listNote = ArrayList<Note>()
+    var onItemClick: ((Note) -> Unit)? = null
 
     fun setData(data: ArrayList<Note>){
         if (data.isNotEmpty()) {
@@ -34,6 +35,10 @@ class NotesAdapter : RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
     inner class NoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val binding = NoteItemBinding.bind(itemView)
         fun bind(data: Note) {
+
+            binding.btnDelete.setOnClickListener {
+                onItemClick?.invoke(data)
+            }
 
         }
     }

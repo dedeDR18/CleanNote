@@ -20,7 +20,7 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/materialButton"
+            app:layout_constraintEnd_toStartOf="@+id/btn_delete"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="upload video" />
@@ -33,16 +33,15 @@
             android:layout_marginEnd="8dp"
             android:textColor="@color/black"
             android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@+id/materialButton"
+            app:layout_constraintEnd_toStartOf="@+id/btn_delete"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_title"
             tools:text="upload video ilaksjd laksjdk laksjdl laskjdlaj laksjdlkasj lkasjdk laskjdklaj aksjdlkasjlkajsdlkjlaskjdkasjdlaksjdaksjdlasjdlk askjdlaksjdlasjdl" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/materialButton"
+            android:id="@+id/btn_delete"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="55dp"
-
             android:layout_height="50dp"
             app:icon="@drawable/ic_delete"
             app:layout_constraintBottom_toBottomOf="parent"
