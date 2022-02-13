@@ -2,7 +2,10 @@ package com.example.cleannote.feature_note.persentation.add_edit_note
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.*
+import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
@@ -16,9 +19,6 @@ class add_edit_note : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var navController: NavController
-
-    private var title = ""
-    private var description = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,16 +68,15 @@ class add_edit_note : Fragment() {
             binding.root.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.note_rose))
         }
 
+
+
         binding.fabEditnotes.apply {
             setOnClickListener {
-                navController.popBackStack()
+                ///navController.popBackStack()
+
+                Toast.makeText(requireActivity(), "title = ${binding.etTitle.text}, description ${binding.etDescription.text}", Toast.LENGTH_SHORT).show()
             }
         }
-
-
-        title = binding.etTitle.text.toString()
-        description = binding.etDescription.text.toString()
-
 
 
     }
