@@ -13,7 +13,7 @@ import androidx.navigation.Navigation
 import com.example.cleannote.R
 import com.example.cleannote.databinding.FragmentAddEditNoteBinding
 
-class add_edit_note : Fragment() {
+class Add_edit_note : Fragment() {
 
     private var _binding: FragmentAddEditNoteBinding? = null
     private val binding get() = _binding!!

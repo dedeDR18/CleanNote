@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/add_edit_note"
-        android:name="com.example.cleannote.feature_note.persentation.add_edit_note.add_edit_note"
+        android:name="com.example.cleannote.feature_note.persentation.add_edit_note.Add_edit_note"
         android:label="fragment_add_edit_note"
         tools:layout="@layout/fragment_add_edit_note" />
 </navigation>
