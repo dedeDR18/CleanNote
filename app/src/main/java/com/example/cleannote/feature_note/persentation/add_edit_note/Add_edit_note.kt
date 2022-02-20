@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.cleannote.R
@@ -19,6 +20,8 @@ class Add_edit_note : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var navController: NavController
+
+    private val viewModel: AddEditNoteViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,6 +76,7 @@ class Add_edit_note : Fragment() {
         binding.fabEditnotes.apply {
             setOnClickListener {
                 ///navController.popBackStack()
+                viewModel.onEvent(AddEditNoteEvent.SaveNote)
 
                 Toast.makeText(requireActivity(), "title = ${binding.etTitle.text}, description ${binding.etDescription.text}", Toast.LENGTH_SHORT).show()
             }
