@@ -11,7 +11,7 @@
         android:background="@color/note_green"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".feature_note.persentation.add_edit_note.Add_edit_note">
+        tools:context=".feature_note.persentation.add_edit_note.AddEditNoteFragment">
 
 
         <com.google.android.material.button.MaterialButton
