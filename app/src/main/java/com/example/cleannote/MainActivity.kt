@@ -13,7 +13,9 @@ import androidx.navigation.findNavController
 import com.example.cleannote.databinding.ActivityMainBinding
 import com.example.cleannote.databinding.OrderDialogBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     val TAG = "MainActivity"
     private lateinit var binding: ActivityMainBinding

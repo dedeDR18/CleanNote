@@ -1,5 +1,6 @@
 package com.example.cleannote.feature_note.data.repository
 
+import android.util.Log
 import com.example.cleannote.feature_note.data.data_source.NoteDao
 import com.example.cleannote.feature_note.domain.model.Note
 import com.example.cleannote.feature_note.domain.repository.NoteRepository

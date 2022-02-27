@@ -6,6 +6,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.cleannote.feature_note.domain.model.InvalidNoteException
 import com.example.cleannote.feature_note.domain.model.Note
 import com.example.cleannote.feature_note.domain.usecase.NoteUseCases
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedInject
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -15,7 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class AddEditNoteViewModel @Inject constructor(
     private val noteUseCases: NoteUseCases,
-    savedStateHandle: SavedStateHandle
+    private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
     private val _noteTitle = MutableStateFlow<String>("")
     val noteTitle: StateFlow<String> = _noteTitle
@@ -54,7 +56,7 @@ class AddEditNoteViewModel @Inject constructor(
             }
 
             is AddEditNoteEvent.EnteredContent -> {
-                _noteTitle.value = event.contentValue
+                _noteContent.value = event.contentValue
             }
 
             is AddEditNoteEvent.ChangeColor -> {

@@ -13,7 +13,9 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.cleannote.R
 import com.example.cleannote.databinding.FragmentAddEditNoteBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AddEditNoteFragment : Fragment() {
 
     private var _binding: FragmentAddEditNoteBinding? = null
@@ -73,12 +75,23 @@ class AddEditNoteFragment : Fragment() {
 
 
 
+
+
         binding.fabEditnotes.apply {
             setOnClickListener {
-                ///navController.popBackStack()
+
+
+                Log.d("ADDNOTESFRAGMENT", "title = ${binding.etTitle.text}")
+                Log.d("ADDNOTESFRAGMENT", "content = ${binding.etDescription.text}")
+                viewModel.onEvent(AddEditNoteEvent.EnteredTitle(binding.etTitle.text.toString()))
+                viewModel.onEvent(AddEditNoteEvent.EnteredContent(binding.etDescription.text.toString()))
+                viewModel.onEvent(AddEditNoteEvent.ChangeColor(R.color.note_green))
                 viewModel.onEvent(AddEditNoteEvent.SaveNote)
 
-                Toast.makeText(requireActivity(), "title = ${binding.etTitle.text}, description ${binding.etDescription.text}", Toast.LENGTH_SHORT).show()
+                navController.popBackStack()
+
+
+                //Toast.makeText(requireActivity(), "title = ${binding.etTitle.text}, description ${binding.etDescription.text}", Toast.LENGTH_SHORT).show()
             }
         }
 

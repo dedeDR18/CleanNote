@@ -1,22 +1,32 @@
 package com.example.cleannote.feature_note.persentation.notes
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.cleannote.R
 import com.example.cleannote.databinding.FragmentAddEditNoteBinding
 import com.example.cleannote.databinding.FragmentNotesBinding
+import com.example.cleannote.feature_note.persentation.add_edit_note.AddEditNoteViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
-
+@AndroidEntryPoint
 class NotesFragment : Fragment() {
 
     private var _binding: FragmentNotesBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel: NotesViewModel by viewModels()
 
     private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +49,9 @@ class NotesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+
         navController = Navigation.findNavController(view)
         binding.fabNotes.apply {
             setOnClickListener {

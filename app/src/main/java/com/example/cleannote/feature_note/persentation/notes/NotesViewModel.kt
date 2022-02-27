@@ -25,6 +25,9 @@ class NotesViewModel @Inject constructor(
     private val _state = MutableStateFlow<NotesState>(NotesState())
     val state: StateFlow<NotesState> = _state
 
+    private val _eventUi = MutableStateFlow<UiEventNotes>(UiEventNotes.empty)
+    val eventUi: StateFlow<UiEventNotes> = _eventUi
+
 
     // lastt deleted note
     private var recentlydeletedNote: Note? = null
@@ -79,7 +82,13 @@ class NotesViewModel @Inject constructor(
                     notes,
                     noteOrder
                 )
+                //_eventUi.emit(UiEventNotes.ShowData())
             }
             .launchIn(viewModelScope)
+    }
+
+    sealed class UiEventNotes{
+        data class ShowData(val notes: List<Note>):UiEventNotes()
+        object empty: UiEventNotes()
     }
 }
