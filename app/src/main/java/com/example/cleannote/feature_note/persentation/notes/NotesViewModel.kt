@@ -1,5 +1,6 @@
 package com.example.cleannote.feature_note.persentation.notes
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cleannote.feature_note.domain.model.Note
@@ -36,10 +37,9 @@ class NotesViewModel @Inject constructor(
     private var getNotesJob: Job? = null
 
     init {
+        Log.d("NOTESVIEWMODEL", "INIT VM")
         getNotes(NoteOrder.Date(OrderType.Descending))
-        viewModelScope.launch {
-            _eventUi.emit(UiEventNotes.ShowData(state.value.notes))
-        }
+
     }
 
     // #1
@@ -85,7 +85,7 @@ class NotesViewModel @Inject constructor(
                     notes,
                     noteOrder
                 )
-
+                _eventUi.emit(UiEventNotes.ShowData(notes))
             }
             .launchIn(viewModelScope)
     }
