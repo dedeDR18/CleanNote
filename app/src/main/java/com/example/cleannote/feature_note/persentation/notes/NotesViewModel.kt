@@ -37,6 +37,9 @@ class NotesViewModel @Inject constructor(
 
     init {
         getNotes(NoteOrder.Date(OrderType.Descending))
+        viewModelScope.launch {
+            _eventUi.emit(UiEventNotes.ShowData(state.value.notes))
+        }
     }
 
     // #1
@@ -82,7 +85,7 @@ class NotesViewModel @Inject constructor(
                     notes,
                     noteOrder
                 )
-                //_eventUi.emit(UiEventNotes.ShowData())
+
             }
             .launchIn(viewModelScope)
     }

@@ -36,6 +36,9 @@ class NotesAdapter : RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
         private val binding = NoteItemBinding.bind(itemView)
         fun bind(data: Note) {
 
+            binding.tvTitle.text = data.title
+            binding.tvDescription.text = data.content
+
             binding.btnDelete.setOnClickListener {
                 onItemClick?.invoke(data)
             }

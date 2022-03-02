@@ -52,6 +52,7 @@ class NotesFragment : Fragment() {
 
 
 
+
         navController = Navigation.findNavController(view)
         binding.fabNotes.apply {
             setOnClickListener {
