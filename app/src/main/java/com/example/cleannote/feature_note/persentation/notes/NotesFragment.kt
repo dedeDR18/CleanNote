@@ -56,6 +56,7 @@ class NotesFragment : Fragment() {
 
         initRv()
         uiEvent()
+        handleDeleteButtonClick()
         navController = Navigation.findNavController(view)
         binding.fabNotes.apply {
             setOnClickListener {
@@ -88,6 +89,12 @@ class NotesFragment : Fragment() {
                     }
                 }
             }
+        }
+    }
+
+    private fun handleDeleteButtonClick(){
+        noteAdapter.onItemClick = { note ->
+            viewModel.onEvent(NotesEvent.DeleteNote(note))
         }
     }
 
