@@ -2,6 +2,7 @@ package com.example.cleannote.feature_note.domain.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.cleannote.R
 import com.example.cleannote.ui.*
 
 @Entity
@@ -13,7 +14,7 @@ data class Note(
     @PrimaryKey val id: Int? = null
 ) {
     companion object {
-        val noteColors = listOf(Red, Cyan, Magenta, Green, Yellow)
+        val noteColors = listOf(R.color.note_yellow, R.color.note_green, R.color.note_blue, R.color.note_abu, R.color.note_rose, R.color.note_burgandy)
     }
 }
 

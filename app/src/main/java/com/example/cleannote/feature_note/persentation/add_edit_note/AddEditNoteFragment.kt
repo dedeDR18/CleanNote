@@ -48,36 +48,38 @@ class AddEditNoteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.root.setBackgroundColor(ContextCompat.getColor(requireContext(), viewModel.noteColor.value))
+
         navController = Navigation.findNavController(view)
 
         binding.btnYellow.setOnClickListener {
             binding.root.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.note_yellow))
-            choosenColor = R.color.note_yellow
+            viewModel.changeNoteColor(R.color.note_yellow)
         }
 
         binding.btnGreen.setOnClickListener {
             binding.root.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.note_green))
-            choosenColor = R.color.note_green
+            viewModel.changeNoteColor(R.color.note_green)
         }
 
         binding.btnBlue.setOnClickListener {
             binding.root.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.note_blue))
-            choosenColor = R.color.note_blue
+            viewModel.changeNoteColor(R.color.note_blue)
         }
 
         binding.btnAbu.setOnClickListener {
             binding.root.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.note_abu))
-            choosenColor = R.color.note_abu
+            viewModel.changeNoteColor(R.color.note_abu)
         }
 
         binding.btnBurgandy.setOnClickListener {
             binding.root.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.note_burgandy))
-            choosenColor = R.color.note_burgandy
+            viewModel.changeNoteColor(R.color.note_burgandy)
         }
 
         binding.btnRose.setOnClickListener {
             binding.root.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.note_rose))
-            choosenColor = R.color.note_rose
+            viewModel.changeNoteColor(R.color.note_rose)
         }
 
 

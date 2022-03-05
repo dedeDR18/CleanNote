@@ -25,8 +25,8 @@ class AddEditNoteViewModel @Inject constructor(
     private val _noteContent = MutableStateFlow<String>("")
     val noteContent: StateFlow<String> = _noteContent
 
-    private val _noteColor = MutableStateFlow(Note.noteColors.random().toInt())
-    val noteColor: StateFlow<Int> = _noteColor
+    private val _noteColor = MutableStateFlow(Note.noteColors[0])
+    var noteColor: StateFlow<Int> = _noteColor
 
     private val _eventFlow = MutableStateFlow<UiEvent>(UiEvent.empty)
     var eventFlow:StateFlow<UiEvent> = _eventFlow
@@ -88,6 +88,10 @@ class AddEditNoteViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    fun changeNoteColor(color: Int){
+        _noteColor.value = color
     }
 
     sealed class UiEvent{
