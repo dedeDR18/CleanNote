@@ -20,6 +20,7 @@ class AddEditNoteFragment : Fragment() {
 
     private var _binding: FragmentAddEditNoteBinding? = null
     private val binding get() = _binding!!
+    private var choosenColor: Int = R.color.note_burgandy
 
     private lateinit var navController: NavController
 
@@ -51,26 +52,32 @@ class AddEditNoteFragment : Fragment() {
 
         binding.btnYellow.setOnClickListener {
             binding.root.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.note_yellow))
+            choosenColor = R.color.note_yellow
         }
 
         binding.btnGreen.setOnClickListener {
             binding.root.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.note_green))
+            choosenColor = R.color.note_green
         }
 
         binding.btnBlue.setOnClickListener {
             binding.root.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.note_blue))
+            choosenColor = R.color.note_blue
         }
 
         binding.btnAbu.setOnClickListener {
             binding.root.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.note_abu))
+            choosenColor = R.color.note_abu
         }
 
         binding.btnBurgandy.setOnClickListener {
             binding.root.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.note_burgandy))
+            choosenColor = R.color.note_burgandy
         }
 
         binding.btnRose.setOnClickListener {
             binding.root.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.note_rose))
+            choosenColor = R.color.note_rose
         }
 
 
@@ -85,7 +92,7 @@ class AddEditNoteFragment : Fragment() {
                 Log.d("ADDNOTESFRAGMENT", "content = ${binding.etDescription.text}")
                 viewModel.onEvent(AddEditNoteEvent.EnteredTitle(binding.etTitle.text.toString()))
                 viewModel.onEvent(AddEditNoteEvent.EnteredContent(binding.etDescription.text.toString()))
-                viewModel.onEvent(AddEditNoteEvent.ChangeColor(R.color.note_green))
+                viewModel.onEvent(AddEditNoteEvent.ChangeColor(choosenColor))
                 viewModel.onEvent(AddEditNoteEvent.SaveNote)
 
                 navController.popBackStack()

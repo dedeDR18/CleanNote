@@ -4,6 +4,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cleannote.R
 import com.example.cleannote.databinding.NoteItemBinding
@@ -39,6 +41,8 @@ class NotesAdapter : RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
 
             binding.tvTitle.text = data.title
             binding.tvDescription.text = data.content
+
+            binding.itemContainer.setBackgroundColor(ContextCompat.getColor(binding.root.context, data.color))
 
             binding.btnDelete.setOnClickListener {
                 onItemClick?.invoke(data)
