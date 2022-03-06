@@ -48,7 +48,10 @@ class AddEditNoteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.root.setBackgroundColor(ContextCompat.getColor(requireContext(), viewModel.noteColor.value))
+        //binding.root.setBackgroundColor(ContextCompat.getColor(requireContext(), viewModel.noteColor.value))
+        binding.vm = viewModel
+        binding.lifecycleOwner = this
+
 
         navController = Navigation.findNavController(view)
 
@@ -90,11 +93,10 @@ class AddEditNoteFragment : Fragment() {
             setOnClickListener {
 
 
-                Log.d("ADDNOTESFRAGMENT", "title = ${binding.etTitle.text}")
-                Log.d("ADDNOTESFRAGMENT", "content = ${binding.etDescription.text}")
+
                 viewModel.onEvent(AddEditNoteEvent.EnteredTitle(binding.etTitle.text.toString()))
                 viewModel.onEvent(AddEditNoteEvent.EnteredContent(binding.etDescription.text.toString()))
-                viewModel.onEvent(AddEditNoteEvent.ChangeColor(choosenColor))
+                //viewModel.onEvent(AddEditNoteEvent.ChangeColor(choosenColor))
                 viewModel.onEvent(AddEditNoteEvent.SaveNote)
 
                 navController.popBackStack()
@@ -104,6 +106,9 @@ class AddEditNoteFragment : Fragment() {
             }
         }
 
+        Log.d("ADDEDITNOTEFRAGMENT","note title = ${viewModel.noteTitle.value}")
+        Log.d("ADDEDITNOTEFRAGMENT","note des = ${viewModel.noteContent.value}")
+
 
     }
 
@@ -111,6 +116,8 @@ class AddEditNoteFragment : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
         menu.clear()
     }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()

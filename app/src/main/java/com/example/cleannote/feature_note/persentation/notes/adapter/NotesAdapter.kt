@@ -13,7 +13,9 @@ import com.example.cleannote.feature_note.domain.model.Note
 
 class NotesAdapter : RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
     private val listNote = ArrayList<Note>()
+    var onDeleteButtonClick: ((Note) -> Unit)? = null
     var onItemClick: ((Note) -> Unit)? = null
+
 
     fun setData(data: ArrayList<Note>){
         if (data.isNotEmpty()) {
@@ -41,11 +43,14 @@ class NotesAdapter : RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
 
             binding.tvTitle.text = data.title
             binding.tvDescription.text = data.content
+            binding.root.setOnClickListener {
+                onItemClick?.invoke(data)
+            }
 
             binding.itemContainer.setBackgroundColor(ContextCompat.getColor(binding.root.context, data.color))
 
             binding.btnDelete.setOnClickListener {
-                onItemClick?.invoke(data)
+                onDeleteButtonClick?.invoke(data)
             }
 
         }

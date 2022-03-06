@@ -4,10 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="com.example.cleannote.R" />
+        <variable
+            name="vm"
+            type="com.example.cleannote.feature_note.persentation.add_edit_note.AddEditNoteViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:setBackground="@{vm.noteColor}"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".feature_note.persentation.add_edit_note.AddEditNoteFragment">
@@ -135,6 +140,7 @@
 
 
         <EditText
+            android:text="@{vm.noteTitle}"
             android:textSize="24sp"
             android:textStyle="bold"
             android:id="@+id/et_title"
@@ -151,6 +157,7 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_yellow" />
 
         <EditText
+            android:text="@{vm.noteContent}"
             android:id="@+id/et_description"
             android:background="@android:color/transparent"
             android:layout_marginEnd="16dp"

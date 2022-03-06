@@ -1,5 +1,6 @@
 package com.example.cleannote.feature_note.persentation.add_edit_note
 
+import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -9,9 +10,11 @@ import com.example.cleannote.feature_note.domain.usecase.NoteUseCases
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -19,13 +22,13 @@ class AddEditNoteViewModel @Inject constructor(
     private val noteUseCases: NoteUseCases,
     private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
-    private val _noteTitle = MutableStateFlow<String>("")
+    private var _noteTitle = MutableStateFlow<String>("")
     val noteTitle: StateFlow<String> = _noteTitle
 
-    private val _noteContent = MutableStateFlow<String>("")
+    private var _noteContent = MutableStateFlow<String>("")
     val noteContent: StateFlow<String> = _noteContent
 
-    private val _noteColor = MutableStateFlow(Note.noteColors[0])
+    private var _noteColor = MutableStateFlow(Note.noteColors[0])
     var noteColor: StateFlow<Int> = _noteColor
 
     private val _eventFlow = MutableStateFlow<UiEvent>(UiEvent.empty)
@@ -38,10 +41,17 @@ class AddEditNoteViewModel @Inject constructor(
             if (noteId != -1){
                 viewModelScope.launch {
                     noteUseCases.getNote(noteId)?.also { note ->
+                        Log.d("ADDEDITNOTEVIEWMODEL","note id = ${note.id}")
+
                         currentNoteId = note.id
                         _noteTitle.value = note.title
                         _noteContent.value = note.content
                         _noteColor.value = note.color
+                        withContext(Dispatchers.Main){
+
+                        }
+                        Log.d("ADDEDITNOTEVIEWMODEL","note title = ${noteTitle.value}")
+                        Log.d("ADDEDITNOTEVIEWMODEL","note des = ${noteContent.value}")
                     }
                 }
             }
