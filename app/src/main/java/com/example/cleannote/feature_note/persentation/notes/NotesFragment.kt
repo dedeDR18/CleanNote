@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
@@ -17,6 +18,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cleannote.R
 import com.example.cleannote.databinding.FragmentAddEditNoteBinding
 import com.example.cleannote.databinding.FragmentNotesBinding
+import com.example.cleannote.feature_note.domain.model.Note
+import com.example.cleannote.feature_note.domain.util.NoteOrder
+import com.example.cleannote.feature_note.domain.util.OrderType
 import com.example.cleannote.feature_note.persentation.add_edit_note.AddEditNoteViewModel
 import com.example.cleannote.feature_note.persentation.notes.adapter.NotesAdapter
 import com.google.android.material.snackbar.Snackbar
@@ -31,7 +35,7 @@ class NotesFragment : Fragment() {
     private var _binding: FragmentNotesBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: NotesViewModel by viewModels()
+    private val viewModel: NotesViewModel by activityViewModels()
     private lateinit var noteAdapter: NotesAdapter
 
     private lateinit var navController: NavController
@@ -55,11 +59,13 @@ class NotesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.lifecycleOwner = this
 
         initRv()
         uiEvent()
         handleDeleteButtonClick()
         handleItemClick()
+
         navController = Navigation.findNavController(view)
         binding.fabNotes.apply {
             setOnClickListener {

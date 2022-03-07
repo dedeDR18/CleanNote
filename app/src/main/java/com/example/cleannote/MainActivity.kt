@@ -7,11 +7,16 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.RadioButton
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.example.cleannote.databinding.ActivityMainBinding
 import com.example.cleannote.databinding.OrderDialogBinding
+import com.example.cleannote.feature_note.domain.util.NoteOrder
+import com.example.cleannote.feature_note.domain.util.OrderType
+import com.example.cleannote.feature_note.persentation.notes.NotesEvent
+import com.example.cleannote.feature_note.persentation.notes.NotesViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,6 +29,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     var listSelected = mutableListOf("title", "ascending")
 
+    private val viewModel: NotesViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -34,19 +41,7 @@ class MainActivity : AppCompatActivity() {
         navController = findNavController(R.id.main_fragment)
 
 
-
-//        binding.fab.apply {
-//            setOnClickListener {
-//                navController.navigate(R.id.action_notesFragment_to_add_edit_note)
-//                setImageDrawable(getDrawable(R.drawable.ic_save))
-//            }
-//        }
-
-
     }
-
-
-
 
     private fun showOrderDialog(){
         val bottomSheet = BottomSheetDialog(this)
@@ -76,9 +71,32 @@ class MainActivity : AppCompatActivity() {
                 listSelected.set(1,radioSelected.text.toString())
             }
 
-            Toast.makeText(this, "Selected = ${listSelected.joinToString()}", Toast.LENGTH_SHORT).show()
+
+            if (listSelected[0].equals("Color") && listSelected[1].equals("Ascending")){
+                viewModel.onEvent(NotesEvent.Order(NoteOrder.Color(OrderType.Ascending)))
+            }
+            if (listSelected[0].equals("Color") && listSelected[1].equals("Descending")){
+                viewModel.onEvent(NotesEvent.Order(NoteOrder.Color(OrderType.Descending)))
+            }
+
+            if (listSelected[0].equals("Title") && listSelected[1].equals("Ascending")){
+                viewModel.onEvent(NotesEvent.Order(NoteOrder.Title(OrderType.Ascending)))
+            }
+
+            if (listSelected[0].equals("Title") && listSelected[1].equals("Descending")){
+                viewModel.onEvent(NotesEvent.Order(NoteOrder.Title(OrderType.Descending)))
+            }
+
+            if (listSelected[0].equals("Date") && listSelected[1].equals("Ascending")){
+                viewModel.onEvent(NotesEvent.Order(NoteOrder.Date(OrderType.Ascending)))
+            }
+
+            if (listSelected[0].equals("Date") && listSelected[1].equals("Descending")){
+                viewModel.onEvent(NotesEvent.Order(NoteOrder.Date(OrderType.Descending)))
+            }
             bottomSheet.dismiss()
         }
+
         bottomSheet.show()
     }
 
@@ -93,6 +111,4 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
-
 }
